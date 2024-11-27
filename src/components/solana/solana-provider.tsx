@@ -20,6 +20,12 @@ export const WalletButton = dynamic(async () => (await import('@solana/wallet-ad
   ssr: false,
 })
 
+export const CustomWalletButton = () => {
+  return (
+    <WalletButton className="bg-white text-black font-bold py-2 px-4 rounded border border-black hover:bg-gray-200" />
+  );
+};
+
 export function SolanaProvider({ children }: { children: ReactNode }) {
   const { cluster } = useCluster()
   const endpoint = useMemo(() => cluster.endpoint, [cluster])
