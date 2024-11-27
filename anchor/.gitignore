@@ -1,0 +1,55 @@
+# Ignore Anchor build artifacts
+.anchor
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore Rust build artifacts
+target/debug
+target/deploy
+target/release
+target/sbf-solana-solana
+target/test-ledger
+target/.rustc_info.json
+
+# Ignore backup files
+**/*.rs.bk
+
+# Ignore Node.js dependencies
+node_modules
+
+# Ignore test ledger
+test-ledger
+
+# Ignore Yarn files
+.yarn
+.yarnrc.yml
+
+# Ignore keypair files
+keypairs/*
+
+# Ignore environment variable files
+.env
+.env.local
+.env.*.local
+
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.swp
+*.swo
+
+# Ignore coverage reports
+coverage/
+*.lcov
+
+# Ignore IDE/editor specific files
+.vscode/
+.idea/
+*.iml
+
+# Ignore build artifacts
+dist/   
+build/
