@@ -10,18 +10,22 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-
+import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { issuerKycSchema } from "@/schemas/issueBond";
 
+
+
 export const KycForm = () => {
   const form = useForm<z.infer<typeof issuerKycSchema>>({
     resolver: zodResolver(issuerKycSchema),
     defaultValues: {},
   });
+
+  const router = useRouter();
 
   function onSubmit(values: z.infer<typeof issuerKycSchema>) {
     // Do something with the form values.
@@ -31,7 +35,7 @@ export const KycForm = () => {
 
   return (
     <div className="w-full h-full mt-4">
-      <div className="mx-auto flex bg-[#ffffff] rounded-xl shadow-md h-[350px] w-[500px] border-[#6b65f9]">
+      <div className="mx-auto flex bg-[#ffffff] rounded-xl shadow-md h-[400px] w-[700px] border-[#6b65f9]">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="w-full mt-10">
             <div className="flex flex-col gap-4">
@@ -45,7 +49,6 @@ export const KycForm = () => {
                       <FormControl>
                         <Input placeholder="Hdfc bank" {...field} />
                       </FormControl>
-
                       <FormMessage />
                     </FormItem>
                   )}
@@ -130,7 +133,11 @@ export const KycForm = () => {
             </div>
 
             <div className="w-full flex max-auto justify-center mt-5">
-              <Button type="submit" className="bg-[#6b65f9] text-white">
+              <Button
+                type="submit"
+                onClick={() => router.push("/issuer/issuebond")}
+                className="bg-[#6b65f9] text-white"
+              >
                 Submit{" "}
               </Button>
             </div>

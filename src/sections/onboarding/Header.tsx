@@ -5,7 +5,7 @@ import MenuIcon from "@/assets/menu.svg";
 
 export const Header = () => {
   return (
-    <header className="sticky top-0 backdrop-blur-sm z-20  ">
+    <header className="sticky top-0 bg-[#ffff] backdrop-blur-sm z-20  ">
       <div className="flex justify-center items-center py-3 bg-black text-white gap-3">
         <p className="text-white/60 hidden md:block font-[200] text-sm">Do you know, as of 2023 bond market was valued at $140.3 trillion </p>
        

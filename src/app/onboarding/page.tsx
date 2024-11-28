@@ -16,11 +16,11 @@ export default function Onboarding() {
   const [choice, setChoice] = useState<SelectionType | "">("");
 
   return (
-    <div>
+    <div className="bg-[#f2f2f2] h-[100vh]">
       <Header />
 
       <div className="   ">
-        <h1 className="text-5xl md:text-5xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text  w-full mx-auto text-center">
+        <h1 className="text-5xl md:text-5xl font-bold tracking-tighter bg-gradient-to-b from-black to-[#001E80] text-transparent bg-clip-text  w-full mx-auto text-center mt-3">
           Are you an Issuer or an Investor?
         </h1>
 
@@ -46,23 +46,28 @@ export default function Onboarding() {
               </button>
             </div>
             <div className="mx-auto mt-10">
-
-            {choice === SelectionType.Issuer
-              ?  <Button  onClick={() => router.push("/issuer/kyc")} className={"bg-[#6b65f9] text-white font-light "}>
-                    Continue as Issuer
-              </Button>
-              : choice === SelectionType.Investor
-              ?  <Button  onClick={() => router.push("/issuer/issuebond")} className={"bg-[#6b65f9] text-white font-light "}>
-              Continue as Investor
-        </Button>
-              :  <Button  onClick={() => router.push("/issuer/kyc")} disabled={true} className={" bg-[#6b65f9] text-white font-light "}>
-               Select a Choice
-        </Button>}
-           
+              {choice === SelectionType.Issuer ? (
+                <Button
+                  onClick={() => router.push("/issuer/kyc")}
+                  className={"bg-[#6b65f9] text-white font-light "}
+                >
+                  Continue as Issuer
+                </Button>
+              ) : choice === SelectionType.Investor ? (
+                <Button className={"bg-[#6b65f9] text-white font-light "}>
+                  Continue as Investor
+                </Button>
+              ) : (
+                <Button
+                  onClick={() => router.push("/issuer/kyc")}
+                  disabled={true}
+                  className={" bg-[#6b65f9] text-white font-light "}
+                >
+                  Select a Choice
+                </Button>
+              )}
+            </div>
           </div>
-          </div>
-
-         
         </div>
       </div>
     </div>

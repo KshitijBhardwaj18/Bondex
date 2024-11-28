@@ -27,7 +27,7 @@ interface SelectionCardProps {
 export const SelectionCard = (props: SelectionCardProps) => {
   return (
     <div>
-      <Card className={props.selected ? "border-[#6b65f9] w-[300px] h-[200px]  ": "w-[300px] h-[200px] "}>
+      <Card className={props.selected ? "border-[#6b65f9] bg-white w-[300px] h-[200px]  ": "w-[300px] h-[200px] bg-white "}>
         <CardHeader>
             <div className="mx-auto relative ">
           <Image
