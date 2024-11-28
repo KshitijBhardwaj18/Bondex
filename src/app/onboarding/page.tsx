@@ -3,8 +3,11 @@ import { useState } from "react";
 import { Header } from "@/sections/onboarding/Header";
 import { SelectionCard } from "@/sections/onboarding/selection";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 export default function Onboarding() {
+  const router = useRouter();
+
   enum SelectionType {
     Issuer = "issuer",
     Investor = "investor",
@@ -43,13 +46,19 @@ export default function Onboarding() {
               </button>
             </div>
             <div className="mx-auto mt-10">
-            <Button className={choice == "" ? "disabled bg-[#6b65f9] text-white font-light  " : "bg-[#6b65f9] text-white font-light "}>
+
             {choice === SelectionType.Issuer
-              ? "Continue as Issuer"
+              ?  <Button  onClick={() => router.push("/issuer/kyc")} className={"bg-[#6b65f9] text-white font-light "}>
+                    Continue as Issuer
+              </Button>
               : choice === SelectionType.Investor
-              ? "Continue as Investor"
-              : "Select a choice"}
-          </Button>
+              ?  <Button  onClick={() => router.push("/issuer/issuebond")} className={"bg-[#6b65f9] text-white font-light "}>
+              Continue as Investor
+        </Button>
+              :  <Button  onClick={() => router.push("/issuer/kyc")} disabled={true} className={" bg-[#6b65f9] text-white font-light "}>
+               Select a Choice
+        </Button>}
+           
           </div>
           </div>
 

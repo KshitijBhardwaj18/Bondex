@@ -1,10 +1,15 @@
+"use client";
+
+import { useRouter } from "next/navigation";
+
 import ArrowRight from "@/assets/arrow-right.svg";
 import Logo from "@/assets/logo.png";
 import Image from "next/image";
 import MenuIcon from "@/assets/menu.svg";
-
+import { Router } from "lucide-react";
 
 export const Header = () => {
+  const router = useRouter();
   return (
     <header className="sticky top-0 backdrop-blur-sm z-20">
       <div className="flex justify-center items-center py-3 bg-black text-white gap-3">
@@ -31,7 +36,10 @@ export const Header = () => {
             <a href="#" className="text-black/60">
               Contact
             </a>
-            <button className="bg-black text-white px-4 py-2 rounded-lg inline-flex items-center justify-center tracking-tight">
+            <button
+              onClick={() => {router.push("/onboarding")}}
+              className="bg-black text-white px-4 py-2 rounded-lg inline-flex items-center justify-center tracking-tight"
+            >
               Start now
             </button>
 
